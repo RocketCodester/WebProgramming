@@ -7,7 +7,7 @@
 
 //http://localhost/WebProgramming/index.php?list=user&order[by]=name&order[dir]=asc
 //echo $_GET['order']['by'] . "<br>";
-//echo $_GET['order']['dir'] . "<br>";
+//echo $_GET['order']['dir'] . "<br>"; 
 
 if (!empty($_GET)){
     var_dump($_GET);
