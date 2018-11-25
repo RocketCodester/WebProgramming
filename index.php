@@ -7,8 +7,9 @@
 
 //http://localhost/WebProgramming/index.php?list=user&order[by]=name&order[dir]=asc
 //echo $_GET['order']['by'] . "<br>";
-//echo $_GET['order']['dir'] . "<br>"; 
+//echo $_GET['order']['dir'] . "<br>";
 
+//get.php
 if (!empty($_GET)){
     var_dump($_GET);
     echo $_SERVER['PHP_SELF'] . "<br>";
@@ -17,12 +18,32 @@ if (!empty($_GET)){
         . urlencode ($data);
 }
 
-//http://localhost/WebProgramming/index.php
+//post.php
 if (isset($_POST['login'])) {
     var_dump($_POST);
     if ($_POST['user'] == "admin" &&
         $_POST['pass'] == "secretpassword") {
         echo "Successful Login";
+    }
+}
+
+//post2.php
+if (isset($_POST['languages'])) {
+    var_dump($_POST);
+    foreach ($_POST['languages'] as $language) {
+        switch ($language) {
+            case 'PHP' :
+                echo "PHP? Awesome! <br />";
+                break;
+            case 'Perl' :
+                echo "Perl? Ew. Just Ew. <br />";
+                break;
+            case 'Ruby' :
+                echo "Ruby? Can you say... 'bandwagon?' <br />";
+                break;
+            default:
+                echo "Unknown language!";
+        }
     }
 }
 ?>
