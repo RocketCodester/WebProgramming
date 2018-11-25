@@ -46,5 +46,14 @@ if (isset($_POST['languages'])) {
         }
     }
 }
+
+//fileupload.php
+if (isset($_FILES) && $_FILES['filedata']['error'] == UPLOAD_ERR_OK && $_FILES['filedata']['size'] != 0 && $_FILES['filedata']['tmp_name'] != 'none' && is_uploaded_file($_FILES['filedata']['tmp_name'])) {
+    $info = new SplFileInfo(basename($_FILES['filedata']['tmp_name']));
+    $serverFileName = '0.' . $info->getExtension();
+    $files = [$serverFileName => basename($_FILES['filedata']['tmp_name'])];
+    move_uploaded_file($_FILES['filedata']['tmp_name'], "C:\Users\\" . get_current_user(). "\\Desktop\\" . $serverFileName); //uses is_uploaded_file
+    var_dump($_FILES);
+}
 ?>
 
